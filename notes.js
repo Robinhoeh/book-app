@@ -54,4 +54,32 @@ bookList.previousElementSibling.querySelector('p').innerHTML += '</br>Too cool o
 
 bookList.nextElementSibling.querySelector('button').style.backgroundColor = "pink";
 
-bookList.nextElementSibling.querySelector('button').innerHTML = '<h1>I dun fit here</h2>';
+// bookList.nextElementSibling.querySelector('button').innerHTML = '<h1>I dun fit here</h2>';
+
+
+// DOM EVENTS - Remove Content
+// 1. Add event listener to element
+// 2. When event occurs
+// 3. Callback function fires and code is run
+
+// 1. variable.listener('event', functionName)
+// 2. functionName(e) {}
+
+const deleteButton = document.querySelectorAll('#book-list .delete');
+
+deleteButton.forEach(function(dltBtn){
+  dltBtn.addEventListener('click', dltButton)
+});
+
+function dltButton(e) {
+ const li = e.target.parentElement;
+ li.parentNode.removeChild(li);
+};
+
+const link = document.querySelector('#page-banner a');
+link.addEventListener('click', linkButton)
+
+function linkButton(e) {
+  e.preventDefault();
+  console.log(`The link is to: `, e.target.textContent);
+}
