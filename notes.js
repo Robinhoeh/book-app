@@ -65,21 +65,27 @@ bookList.nextElementSibling.querySelector('button').style.backgroundColor = "pin
 // 1. variable.listener('event', functionName)
 // 2. functionName(e) {}
 
+// 1. Retrieve reference to element
 const deleteButton = document.querySelectorAll('#book-list .delete');
 
+// 2. Loop through node list, attach listener
 deleteButton.forEach(function(dltBtn){
   dltBtn.addEventListener('click', dltButton)
 });
 
+// 3. Select targeted element, select parent, remove child
 function dltButton(e) {
  const li = e.target.parentElement;
  li.parentNode.removeChild(li);
 };
 
+// 1. Retrieve element
 const link = document.querySelector('#page-banner a');
+// 2. listen for event
 link.addEventListener('click', linkButton)
 
+// 3. Run Callback function, prevent browser refresh, log textContent
 function linkButton(e) {
   e.preventDefault();
-  console.log(`The link is to: `, e.target.textContent);
+  console.log(`The link is to:`, e.target.textContent);
 }
