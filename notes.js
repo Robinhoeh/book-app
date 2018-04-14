@@ -66,26 +66,52 @@ bookList.nextElementSibling.querySelector('button').style.backgroundColor = "pin
 // 2. functionName(e) {}
 
 // 1. Retrieve reference to element
-const deleteButton = document.querySelectorAll('#book-list .delete');
+// const deleteButton = document.querySelectorAll('#book-list .delete');
 
-// 2. Loop through node list, attach listener
-deleteButton.forEach(function(dltBtn){
-  dltBtn.addEventListener('click', dltButton)
+// // 2. Loop through node list, listen for event
+// deleteButton.forEach(function(dltBtn){
+//   dltBtn.addEventListener('click', dltButton)
+// });
+
+// // 3. Select targeted element, select parent, remove child
+// function dltButton(e) {
+//  const li = e.target.parentElement;
+//  li.parentNode.removeChild(li);
+// };
+
+
+
+
+// // 1. Retrieve element
+// const link = document.querySelector('#page-banner a');
+// // 2. listen for event
+// link.addEventListener('click', linkButton)
+
+// // 3. Run Callback function, prevent browser refresh, log textContent
+// function linkButton(e) {
+//   e.preventDefault();
+//   console.log(`The link is to:`, e.target.textContent);
+// }
+
+// The code above does not take into consideration EVENT BUBBLING
+// It can be refactored to be more dynamic by attaching a listener to the parent element of a section - this way when new elements are added dynamcially, the carry the same functionality
+
+
+// EVENT BUBBLING
+
+// 1. Retrieve reference to element
+const list = document.querySelector('#book-list ul');
+
+// 2. Listen to event
+list.addEventListener('click', listEvent);
+
+// 3. Run Callback function
+function listEvent(e) {
+  // if class name is 'delete'
+  if(e.target.className === "delete"){
+    // Retrive reference to parent element
+    const li = e.target.parentElement;
+    //List is ul - child is li
+    list.removeChild(li);
+  }
 });
-
-// 3. Select targeted element, select parent, remove child
-function dltButton(e) {
- const li = e.target.parentElement;
- li.parentNode.removeChild(li);
-};
-
-// 1. Retrieve element
-const link = document.querySelector('#page-banner a');
-// 2. listen for event
-link.addEventListener('click', linkButton)
-
-// 3. Run Callback function, prevent browser refresh, log textContent
-function linkButton(e) {
-  e.preventDefault();
-  console.log(`The link is to:`, e.target.textContent);
-}
