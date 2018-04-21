@@ -65,7 +65,7 @@ bookList.nextElementSibling.querySelector('button').style.backgroundColor = "pin
 // 1. variable.listener('event', functionName)
 // 2. functionName(e) {}
 
-// 1. Retrieve reference to element
+// 1. Retrieve reference to element 
 // const deleteButton = document.querySelectorAll('#book-list .delete');
 
 // // 2. Loop through node list, listen for event
@@ -93,11 +93,12 @@ bookList.nextElementSibling.querySelector('button').style.backgroundColor = "pin
 //   console.log(`The link is to:`, e.target.textContent);
 // }
 
-// The code above does not take into consideration EVENT BUBBLING
+// All of the code above does not take into consideration EVENT BUBBLING
 // It can be refactored to be more dynamic by attaching a listener to the parent element of a section - this way when new elements are added dynamcially, the carry the same functionality
 
 
 // EVENT BUBBLING
+// This code is DYNAMIC and allows for content to be generated dynamically
 
 // 1. Retrieve reference to element
 const list = document.querySelector('#book-list ul');
@@ -114,4 +115,4 @@ function listEvent(e) {
     //List is ul - child is li
     list.removeChild(li);
   }
-});
+};
