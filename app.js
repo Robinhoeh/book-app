@@ -51,3 +51,21 @@ function hideClickedBox(e){
   }
 }
 
+
+// filter books
+const searchBar = document.forms['search-books'].querySelector('input');
+searchBar.addEventListener('keyup', keyUpListener);
+
+function keyUpListener(e){
+  const searchTerm = e.target.value.toLowerCase();
+  const listOfBooks = list.getElementsByTagName('li');
+
+  Array.from(listOfBooks).forEach(function (book){
+    const bookTitle = book.firstElementChild.textContent;
+    if (bookTitle.toLowerCase().indexOf(searchTerm)!= -1) {
+      book.style.disaply = "block";
+    } else {
+      book.style.display = "none";
+    }
+  });
+}

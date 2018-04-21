@@ -184,3 +184,26 @@ variable.hasAttrribute('class');//true or false
 variable.removeAttribute('class');
 
 
+
+
+
+// filter books
+const searchBar = document.forms['search-books'].querySelector('input');
+searchBar.addEventListener('keyup', keyUpListener);
+
+function keyUpListener(e){
+  const searchTerm = e.target.value.toLowerCase();//make search term lowercase
+  const listOfBooks = list.getElementsByTagName('li');
+
+  Array.from(listOfBooks).forEach(function (book){
+    // select only the name of book
+    const bookTitle = book.firstElementChild.textContent;
+    // compares lower case existing items to search items
+    if (bookTitle.toLowerCase().indexOf(searchTerm)!= -1) {
+      book.style.disaply = "block";
+    } else {
+      book.style.display = "none";
+    }
+  });
+}
+
