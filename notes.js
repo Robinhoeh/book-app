@@ -116,3 +116,19 @@ function listEvent(e) {
     list.removeChild(li);
   }
 };
+
+
+// Event Listener on form
+// add book list
+const addForm = document.forms['add-book'];
+// listener is on the FORM, not button
+addForm.addEventListener('submit', addBookToList);
+
+function addBookToList(e) {
+  e.preventDefault();
+  const value = addForm.querySelector('input[type="text"]').value;
+  console.log(value);
+}
+
+
+
