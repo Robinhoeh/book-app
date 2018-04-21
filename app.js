@@ -26,15 +26,28 @@ function addBookToList(e) {
   deleteBtn.textContent = 'delete';
   bookName.textContent = value;
 
-  // add classes dynamically from already existing classes
+  // Add classes dynamically from already existing classes
   bookName.classList.add('name');
   deleteBtn.classList.add('delete');
 
-  // Order matters
+  // Inject to DOM - order matters
   li.appendChild(bookName);
   li.appendChild(deleteBtn);
   list.appendChild(li);
   li.appendChild(value)
+}
 
+
+// Hide books
+const hideBox = document.querySelector('#hide');
+
+hideBox.addEventListener('change', hideClickedBox);
+
+function hideClickedBox(e){
+  if (hideBox.checked) {
+    list.style.display = "none";
+  } else {
+    list.style.display = "block";
+  }
 }
 

@@ -132,3 +132,55 @@ function addBookToList(e) {
 
 
 
+// Add element/Books
+const addForm = document.forms['add-book'];
+addForm.addEventListener('submit', addBookToList);
+
+function addBookToList(e) {
+  e.preventDefault();
+  const value = addForm.querySelector('input[type="text"]').value;
+  const li = document.createElement("li");
+  const bookName = document.createElement("span");
+  const deleteBtn = document.createElement("span");
+
+  // Add content to dynamically generated elements
+  deleteBtn.textContent = 'delete';
+  bookName.textContent = value;
+
+  // Add classes dynamically from already existing classes
+  bookName.classList.add('name');
+  deleteBtn.classList.add('delete');
+
+  // Inject to DOM - order matters
+  li.appendChild(bookName);
+  li.appendChild(deleteBtn);
+  list.appendChild(li);
+  li.appendChild(value)
+}
+
+/*
+1. Retrieve reference to element
+2. Listen for event
+3. Create Callback function
+4. Retrieve reference to other elements and value
+5. Add content
+6. Append or Add Class
+7. Append/Inject to DOM
+*/
+
+
+
+// Get attributes
+variable.getAttribute('class');
+variable.getAttribute('href');
+
+// Set attributes
+variable.setAttribute('class', 'name-1');
+
+// Has attribute
+variable.hasAttrribute('class');//true or false
+
+// Remove Attribute
+variable.removeAttribute('class');
+
+
