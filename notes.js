@@ -207,3 +207,14 @@ function keyUpListener(e){
   });
 }
 
+/*
+1. Retrieve element
+2. Listen for event
+3. Create Callback
+4. compare input to lower case and retrieve li
+5. Convert HTML collection to array
+6. Retrieve li text content
+7. compare book tile in lower case as ell
+8. If present, display - else, don't display
+*/
+

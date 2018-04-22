@@ -69,3 +69,24 @@ function keyUpListener(e){
     }
   });
 }
+
+// tabbed content
+const tabs = document.querySelector('.tabs');
+const panels = document.querySelectorAll('.panel');
+
+// Listener on parent/ul
+tabs.addEventListener('click', clickedTab);
+
+function clickedTab(e) {
+  if(e.target.tagName == "LI") {
+    const targetPanel = document.querySelector(e.target.dataset.target);
+    panels.forEach(function (panel){
+      if (panel === targetPanel) {
+        panel.classList.add('active');
+      } else {
+        panel.classList.remove('active');
+      }
+    });
+  }
+};
+
