@@ -40,10 +40,9 @@ function addBookToList(e) {
 
 // Hide books
 const hideBox = document.querySelector('#hide');
-
 hideBox.addEventListener('change', hideClickedBox);
 
-function hideClickedBox(e){
+function hideClickedBox(){
   if (hideBox.checked) {
     list.style.display = "none";
   } else {
@@ -60,10 +59,11 @@ function keyUpListener(e){
   const searchTerm = e.target.value.toLowerCase();
   const listOfBooks = list.getElementsByTagName('li');
 
+  // looks for search term title in each book
   Array.from(listOfBooks).forEach(function (book){
     const bookTitle = book.firstElementChild.textContent;
     if (bookTitle.toLowerCase().indexOf(searchTerm)!= -1) {
-      book.style.disaply = "block";
+      book.style.display = "block";
     } else {
       book.style.display = "none";
     }
