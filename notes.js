@@ -218,3 +218,35 @@ function keyUpListener(e){
 8. If present, display - else, don't display
 */
 
+
+
+// tabbed content
+const tabs = document.querySelector('.tabs');
+const panels = document.querySelectorAll('.panel');
+
+// Listener on parent/ul
+tabs.addEventListener('click', clickedTab);
+
+function clickedTab(e) {
+  if(e.target.hasAttribute('data-target')) {
+    // Retrieve reference to element with data attr of target
+    const targetPanel = document.querySelector(e.target.dataset.target);
+    panels.forEach(function(panel) {
+      if (panel === targetPanel) {
+        panel.classList.add('active');
+      } else {
+        panel.classList.remove('active');
+      }
+    });
+  }
+};
+
+/* 
+1. Retrieve reference to tabs and panels
+2. Listen for Click on tab
+3. Create Callback
+4. If clicked tab has attr or is an LI
+5. Retrieve reference to desired panel
+6. Loop through each panel
+7. If desired panel is chosen, add active css class - else remove active css
+*/

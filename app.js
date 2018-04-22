@@ -79,8 +79,9 @@ tabs.addEventListener('click', clickedTab);
 
 function clickedTab(e) {
   if(e.target.hasAttribute('data-target')) {
+    // Retrieve reference to element with data attr of target
     const targetPanel = document.querySelector(e.target.dataset.target);
-    panels.forEach(function (panel){
+    panels.forEach(function(panel) {
       if (panel === targetPanel) {
         panel.classList.add('active');
       } else {
@@ -89,4 +90,5 @@ function clickedTab(e) {
     });
   }
 };
+
 
