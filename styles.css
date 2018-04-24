@@ -132,6 +132,10 @@ h1, h2{
     cursor: pointer;
     margin-right: 10px;
 }
+.blue{
+    background-color: blue;
+}
+
 #tabbed-content .panel{
     display: none;
     border: 1px solid #ddd;

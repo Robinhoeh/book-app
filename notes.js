@@ -155,12 +155,12 @@ function addBookToList(e) {
   li.appendChild(bookName);
   li.appendChild(deleteBtn);
   list.appendChild(li);
-  li.appendChild(value)
+  li.appendChild(value);
 }
 
 /*
-1. Retrieve reference to element
-2. Listen for event
+1. Retrieve reference to parent element
+2. Listen for submit event
 3. Create Callback function
 4. Retrieve reference to other elements and value
 5. Add content
@@ -231,6 +231,7 @@ function clickedTab(e) {
   if(e.target.hasAttribute('data-target')) {
     // Retrieve reference to element with data attr of target
     const targetPanel = document.querySelector(e.target.dataset.target);
+    e.target.classList.add('blue');
     panels.forEach(function(panel) {
       if (panel === targetPanel) {
         panel.classList.add('active');
@@ -249,4 +250,5 @@ function clickedTab(e) {
 5. Retrieve reference to desired panel
 6. Loop through each panel
 7. If desired panel is chosen, add active css class - else remove active css
+
 */
